@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B8B23EA3-9FE4-474B-9763-5977181872AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9A4FC9DE-AC84-43E5-A5DF-388478389A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.MoneyTransfer.API", "Backend.MoneyTransfer.API\Backend.MoneyTransfer.API.csproj", "{49900C8A-FE66-4E29-A765-1C7BE4FA7C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.MoneyTransfer.Application", "Backend.MoneyTransfer.Application\Backend.MoneyTransfer.Application.csproj", "{C0BEB281-2CE0-4AF2-8C05-96CF71B66110}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.MoneyTransfer.Domain", "Backend.MoneyTransfer.Domain\Backend.MoneyTransfer.Domain.csproj", "{D609BCC7-B185-4EC1-839F-2F73E3CBF7EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.MoneyTransfer.Infrastructure", "Backend.MoneyTransfer.Infrastructure\Backend.MoneyTransfer.Infrastructure.csproj", "{489FD946-6F5F-4156-94B8-528ACD0B065F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49900C8A-FE66-4E29-A765-1C7BE4FA7C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49900C8A-FE66-4E29-A765-1C7BE4FA7C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49900C8A-FE66-4E29-A765-1C7BE4FA7C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49900C8A-FE66-4E29-A765-1C7BE4FA7C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BEB281-2CE0-4AF2-8C05-96CF71B66110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BEB281-2CE0-4AF2-8C05-96CF71B66110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BEB281-2CE0-4AF2-8C05-96CF71B66110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BEB281-2CE0-4AF2-8C05-96CF71B66110}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D609BCC7-B185-4EC1-839F-2F73E3CBF7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D609BCC7-B185-4EC1-839F-2F73E3CBF7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D609BCC7-B185-4EC1-839F-2F73E3CBF7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D609BCC7-B185-4EC1-839F-2F73E3CBF7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{489FD946-6F5F-4156-94B8-528ACD0B065F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489FD946-6F5F-4156-94B8-528ACD0B065F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489FD946-6F5F-4156-94B8-528ACD0B065F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489FD946-6F5F-4156-94B8-528ACD0B065F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49900C8A-FE66-4E29-A765-1C7BE4FA7C23} = {B8B23EA3-9FE4-474B-9763-5977181872AF}
+		{C0BEB281-2CE0-4AF2-8C05-96CF71B66110} = {B8B23EA3-9FE4-474B-9763-5977181872AF}
+		{D609BCC7-B185-4EC1-839F-2F73E3CBF7EB} = {B8B23EA3-9FE4-474B-9763-5977181872AF}
+		{489FD946-6F5F-4156-94B8-528ACD0B065F} = {B8B23EA3-9FE4-474B-9763-5977181872AF}
+	EndGlobalSection
+EndGlobal

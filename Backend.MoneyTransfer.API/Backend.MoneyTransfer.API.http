@@ -1,0 +1,6 @@
+@Backend.MoneyTransfer.API_HostAddress = http://localhost:5022
+
+GET {{Backend.MoneyTransfer.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
