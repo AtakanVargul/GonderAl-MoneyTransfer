@@ -1,6 +1,6 @@
 ﻿namespace Backend.MoneyTransfer.Domain.Events;
 
-public class UserCreatedEvent : Commons.DomainEvent
+public class UserCreatedEvent : DomainEvent
 {
     public UserCreatedEvent(User user, Dictionary<string, string> parameters = null)
     {

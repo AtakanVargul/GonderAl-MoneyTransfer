@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Backend.MoneyTransfer.Application.Common.Pagination;
 using Backend.MoneyTransfer.Application.Features.Transfers.Queries;
 using Backend.MoneyTransfer.Application.Features.Transfers.Commands;
 using Backend.MoneyTransfer.Application.Features.Transfers.Commands.Transfer;
@@ -17,7 +18,7 @@ public class TransferController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<TransactionDto>> GetAllTransactions()
+    public async Task<PaginatedList<TransactionDto>> GetAllTransactions()
     {
        return await Mediator.Send(new GetAllTransactionsQuery());
     }

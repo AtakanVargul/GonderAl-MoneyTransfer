@@ -1,5 +1,4 @@
 ﻿#nullable enable
-
 using Backend.MoneyTransfer.Application.Common.Interfaces;
 using Backend.MoneyTransfer.Domain.Enums;
 using Microsoft.EntityFrameworkCore;

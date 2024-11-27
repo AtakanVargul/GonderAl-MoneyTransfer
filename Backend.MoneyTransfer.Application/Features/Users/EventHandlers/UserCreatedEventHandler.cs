@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Backend.MoneyTransfer.Application.Common.Models;
+using Backend.MoneyTransfer.Domain.Events;
 
-namespace Backend.MoneyTransfer.Application.Features.Users.EventHandlers
+using MediatR;
+
+namespace Backend.MoneyTransfer.Application.Features.Users.EventHandlers;
+
+public class UserCreatedEventHandler : INotificationHandler<DomainEventNotification<UserCreatedEvent>>
 {
-    internal class UserCreatedEventHandler
+    public UserCreatedEventHandler() { }
+
+    public async Task Handle(DomainEventNotification<UserCreatedEvent> notification, CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
     }
 }

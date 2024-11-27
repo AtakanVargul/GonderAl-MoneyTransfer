@@ -1,6 +1,8 @@
 ﻿using Backend.MoneyTransfer.Application.Common.Models.AccountModels;
 using Backend.MoneyTransfer.Application.Features.Users.Commands.LoginUser;
 using Backend.MoneyTransfer.Application.Features.Users.Commands.Register;
+using Backend.MoneyTransfer.Application.Features.Users.Queries;
+using Backend.MoneyTransfer.Application.Features.Users.Queries.GetBalance;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,5 +21,12 @@ public class UserController : ApiControllerBase
     public async Task<ActionResult<LoginResponse>> LoginAsync(LoginCommand command)
     {
         return await Mediator.Send(command);
+    }
+
+
+    [HttpPost("balance")]
+    public async Task<ActionResult<UserBalanceDto>> Balance(GetBalanceQuery query)
+    {
+        return await Mediator.Send(query);
     }
 }
