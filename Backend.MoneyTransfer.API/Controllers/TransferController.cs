@@ -18,14 +18,14 @@ public class TransferController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<PaginatedList<TransactionDto>> GetAllTransactions()
-    {
-       return await Mediator.Send(new GetAllTransactionsQuery());
-    }
-
-    [HttpGet("{transactionId}")]
-    public async Task<TransactionDto> GetTransactionById(GetTransactionByIdQuery query)
+    public async Task<PaginatedList<TransactionDto>> GetAllTransactions(GetAllTransactionsQuery query)
     {
         return await Mediator.Send(query);
+    }
+
+    [HttpGet("{Id}")]
+    public async Task<TransactionDto> GetTransactionById(Guid id)
+    {
+        return await Mediator.Send(new GetTransactionByIdQuery { Id = id });
     }
 }

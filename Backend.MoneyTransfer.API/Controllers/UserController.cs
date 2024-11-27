@@ -23,10 +23,9 @@ public class UserController : ApiControllerBase
         return await Mediator.Send(command);
     }
 
-
-    [HttpPost("balance")]
-    public async Task<ActionResult<UserBalanceDto>> Balance(GetBalanceQuery query)
+    [HttpGet("{id}/balance")]
+    public async Task<ActionResult<UserBalanceDto>> Balance(Guid id)
     {
-        return await Mediator.Send(query);
+        return await Mediator.Send(new GetBalanceQuery { Id = id });
     }
 }
