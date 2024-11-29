@@ -7,14 +7,14 @@ using AutoMapper.QueryableExtensions;
 using AutoMapper;
 using MediatR;
 
-namespace Backend.MoneyTransfer.Application.Features.Transfers.Queries.GetAllTransactions;
+namespace Backend.MoneyTransfer.Application.Features.Transfers.Queries.AllTransactions;
 
-public class GetAllTransactionsQuery : SearchQueryParams, IRequest<PaginatedList<TransactionDto>>
+public class AllTransactionsQuery : SearchQueryParams, IRequest<PaginatedList<TransactionDto>>
 {
 
 }
 
-public class GetAllTransactionsQueryHandler : IRequestHandler<GetAllTransactionsQuery, PaginatedList<TransactionDto>>
+public class GetAllTransactionsQueryHandler : IRequestHandler<AllTransactionsQuery, PaginatedList<TransactionDto>>
 {
     private readonly IRepository<Transaction> _transactionRepository;
     private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ public class GetAllTransactionsQueryHandler : IRequestHandler<GetAllTransactions
         _mapper = mapper;
     }
 
-    public async Task<PaginatedList<TransactionDto>> Handle(GetAllTransactionsQuery query, CancellationToken cancellationToken)
+    public async Task<PaginatedList<TransactionDto>> Handle(AllTransactionsQuery query, CancellationToken cancellationToken)
     {
         var transactions = _transactionRepository.GetAll();
 

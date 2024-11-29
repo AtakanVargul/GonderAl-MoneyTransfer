@@ -4,14 +4,14 @@ using Backend.MoneyTransfer.Domain.Entities;
 using AutoMapper;
 using MediatR;
 
-namespace Backend.MoneyTransfer.Application.Features.Users.Queries.GetBalance;
+namespace Backend.MoneyTransfer.Application.Features.Users.Queries.Balance;
 
-public class GetBalanceQuery : IRequest<UserBalanceDto>
+public class BalanceQuery : IRequest<BalanceResponse>
 {
     public Guid Id { get; set; }
 }
 
-public class GetBalanceQueryHandler : IRequestHandler<GetBalanceQuery, UserBalanceDto>
+public class GetBalanceQueryHandler : IRequestHandler<BalanceQuery, BalanceResponse>
 {
     private readonly IRepository<User> _userRepository;
     private readonly IMapper _mapper;
@@ -22,7 +22,7 @@ public class GetBalanceQueryHandler : IRequestHandler<GetBalanceQuery, UserBalan
         _mapper = mapper;
     }
 
-    public async Task<UserBalanceDto> Handle(GetBalanceQuery command, CancellationToken cancellationToken)
+    public async Task<BalanceResponse> Handle(BalanceQuery command, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByIdAsync(command.Id);
 
@@ -31,6 +31,6 @@ public class GetBalanceQueryHandler : IRequestHandler<GetBalanceQuery, UserBalan
             throw new NotFoundException(nameof(User), command.Id);
         }
 
-        return _mapper.Map<UserBalanceDto>(user);
+        return _mapper.Map<BalanceResponse>(user);
     }
 }

@@ -30,7 +30,7 @@ public class MappingTests
     }
 
     [Test]
-    [TestCase(typeof(User), typeof(UserBalanceDto))]
+    [TestCase(typeof(User), typeof(BalanceResponse))]
     public void Mapper_should_map_from_source_to_destination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);

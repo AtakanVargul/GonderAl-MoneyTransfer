@@ -3,8 +3,8 @@ using Backend.MoneyTransfer.Application.Common.Pagination;
 using Backend.MoneyTransfer.Application.Features.Transfers.Queries;
 using Backend.MoneyTransfer.Application.Features.Transfers.Commands;
 using Backend.MoneyTransfer.Application.Features.Transfers.Commands.Transfer;
-using Backend.MoneyTransfer.Application.Features.Transfers.Queries.GetAllTransactions;
-using Backend.MoneyTransfer.Application.Features.Transfers.Queries.GetTransactionById;
+using Backend.MoneyTransfer.Application.Features.Transfers.Queries.AllTransactions;
+using Backend.MoneyTransfer.Application.Features.Transfers.Queries.TransactionById;
 
 namespace Backend.MoneyTransfer.API.Controllers;
 
@@ -18,14 +18,14 @@ public class TransferController : ApiControllerBase
     }
 
     [HttpGet]
-    public async Task<PaginatedList<TransactionDto>> GetAllTransactions(GetAllTransactionsQuery query)
+    public async Task<PaginatedList<TransactionDto>> GetAllTransactions(AllTransactionsQuery query)
     {
         return await Mediator.Send(query);
     }
 
     [HttpGet("{Id}")]
-    public async Task<TransactionDto> GetTransactionById(Guid id)
+    public async Task<TransactionDto> GetTransactionById([FromRoute]Guid id)
     {
-        return await Mediator.Send(new GetTransactionByIdQuery { Id = id });
+        return await Mediator.Send(new TransactionByIdQuery { Id = id });
     }
 }

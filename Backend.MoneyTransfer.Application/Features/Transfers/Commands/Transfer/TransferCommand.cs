@@ -2,8 +2,8 @@
 using Backend.MoneyTransfer.Application.Common.Interfaces;
 using Backend.MoneyTransfer.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using MediatR;
 using AutoMapper;
+using MediatR;
 
 namespace Backend.MoneyTransfer.Application.Features.Transfers.Commands.Transfer;
 
