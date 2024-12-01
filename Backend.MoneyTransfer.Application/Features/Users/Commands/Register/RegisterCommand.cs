@@ -35,7 +35,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, RegisterR
         var emailUser = await _userManager.FindByNameAsync(command.PhoneNumber);
         if (emailUser is not null)
         {
-            throw new AlreadyInUseException(nameof(User));
+            throw new AlreadyInUseException(command.PhoneNumber);
         }
 
         var user = new User

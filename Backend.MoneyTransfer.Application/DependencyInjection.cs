@@ -18,7 +18,6 @@ public static class DependencyInjection
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
-
         //services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
         services.AddScoped<IAuditLogService, AuditLogService>();
 

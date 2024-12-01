@@ -12,19 +12,19 @@ public class TransferController : ApiControllerBase
 {
 
     [HttpPost("transfer")]
-    public async Task<TransactionResponse> Transfer([FromBody] TransferCommand command)
+    public async Task<ActionResult<TransactionResponse>> Transfer([FromBody] TransferCommand command)
     {
         return await Mediator.Send(command);
     }
 
     [HttpGet]
-    public async Task<PaginatedList<TransactionDto>> GetAllTransactions(AllTransactionsQuery query)
+    public async Task<ActionResult<PaginatedList<TransactionDto>>> AllTransactions(AllTransactionsQuery query)
     {
         return await Mediator.Send(query);
     }
 
     [HttpGet("{Id}")]
-    public async Task<TransactionDto> GetTransactionById([FromRoute]Guid id)
+    public async Task<ActionResult<TransactionDto>> TransactionById([FromRoute]Guid id)
     {
         return await Mediator.Send(new TransactionByIdQuery { Id = id });
     }
