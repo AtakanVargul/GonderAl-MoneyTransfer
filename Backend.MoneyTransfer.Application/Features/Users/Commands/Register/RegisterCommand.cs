@@ -57,19 +57,14 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, RegisterR
         {
             var errorCode = result.Errors.FirstOrDefault()?.Code;
 
-            switch (errorCode)
+            throw errorCode switch
             {
-                case "PasswordContentError":
-                    throw new PasswordContentException();
-                case "PasswordLengthError":
-                    throw new PasswordLengthException();
-                case "PasswordRepetitiveCharacterError":
-                    throw new PasswordRepetitiveCharacterException();
-                case "PasswordSuccessiveCharacterError":
-                    throw new PasswordSuccessiveCharacterException();
-                default:
-                    throw new InvalidRegisterException();
-            }
+                "PasswordContentError" => new PasswordContentException(),
+                "PasswordLengthError" => new PasswordLengthException(),
+                "PasswordRepetitiveCharacterError" => new PasswordRepetitiveCharacterException(),
+                "PasswordSuccessiveCharacterError" => new PasswordSuccessiveCharacterException(),
+                _ => new InvalidRegisterException(),
+            };
         }
 
         var credentials = await _jwtHelper.GenerateJwtTokenAsync(user);

@@ -26,11 +26,8 @@ public class GetBalanceQueryHandler : IRequestHandler<BalanceQuery, BalanceRespo
     {
         var user = await _userRepository.GetByIdAsync(command.Id);
 
-        if (user is null)
-        {
-            throw new NotFoundException(nameof(User), command.Id);
-        }
-
-        return _mapper.Map<BalanceResponse>(user);
+        return user is null 
+            ? throw new NotFoundException(nameof(User), command.Id) 
+            : _mapper.Map<BalanceResponse>(user);
     }
 }

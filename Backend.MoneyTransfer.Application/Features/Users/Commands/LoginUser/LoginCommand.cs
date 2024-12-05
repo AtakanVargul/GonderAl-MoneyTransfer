@@ -34,7 +34,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
 
         var user = await _userManager.FindByNameAsync(request.PhoneNumber);
 
-        await ValidateSignInResult(result);
+        ValidateSignInResult(result);
 
         var credentials = await _jwtHelper.GenerateJwtTokenAsync(user);
 
@@ -46,13 +46,11 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
         };
     }
 
-    private static async Task ValidateSignInResult(SignInResult result)
+    private static void ValidateSignInResult(SignInResult result)
     {
         if (!result.Succeeded)
         {
             throw new LoginFailedException();
         }
-
-        await Task.FromResult(true);
     }
 }

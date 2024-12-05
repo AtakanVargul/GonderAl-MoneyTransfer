@@ -27,12 +27,8 @@ public class GetAllTransactionsQueryHandler : IRequestHandler<AllTransactionsQue
 
     public async Task<PaginatedList<TransactionDto>> Handle(AllTransactionsQuery query, CancellationToken cancellationToken)
     {
-        var transactions = _transactionRepository.GetAll();
-
-        if (transactions is null)
-        {
-            throw new NotFoundException(nameof(Transaction));
-        }
+        var transactions = _transactionRepository.GetAll() 
+            ?? throw new NotFoundException(nameof(Transaction));
 
         return await transactions.ProjectTo<TransactionDto>(_mapper.ConfigurationProvider)
             .PaginatedListAsync(query.Page, query.Size);
